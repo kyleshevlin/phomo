@@ -1,0 +1,1 @@
+{"version":3,"file":"phomo.js","sources":["../src/index.js"],"sourcesContent":["const phomo = () => { console.log('Future home of Phomo') }\n\nexport default phomo\n\n"],"names":[],"mappings":";;;;;;AAAA,MAAM,KAAK,GAAG,MAAM,EAAE,OAAO,CAAC,GAAG,CAAC,sBAAsB,EAAC,EAAE;;;;;;;;"}
