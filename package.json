@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Kyle Shevlin <kyle.a.shevlin@gmail.com> (http://kyleshevlin.com/)",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^22.4.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.56.2"
   }
