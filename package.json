@@ -2,7 +2,10 @@
   "name": "phomo",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/phomo.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup -c",
@@ -12,8 +15,14 @@
   "author": "Kyle Shevlin <kyle.a.shevlin@gmail.com> (http://kyleshevlin.com/)",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "jest": "^22.4.0",
     "rimraf": "^2.6.2",
-    "rollup": "^0.56.2"
+    "rollup": "^0.56.2",
+    "rollup-plugin-babel": "^3.0.3"
   }
 }
