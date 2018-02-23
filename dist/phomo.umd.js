@@ -1,6 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.phomo = {})));
+}(this, (function (exports) { 'use strict';
 
 var h = function h(tag) {
   return function () {
@@ -49,4 +51,8 @@ var render = function render(tree) {
 
 exports.h = h;
 exports.render = render;
-//# sourceMappingURL=phomo.js.map
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+//# sourceMappingURL=phomo.umd.js.map

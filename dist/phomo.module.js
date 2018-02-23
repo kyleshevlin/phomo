@@ -1,7 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var h = function h(tag) {
   return function () {
     var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -47,6 +43,5 @@ var render = function render(tree) {
   };
 };
 
-exports.h = h;
-exports.render = render;
-//# sourceMappingURL=phomo.js.map
+export { h, render };
+//# sourceMappingURL=phomo.module.js.map
