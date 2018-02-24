@@ -9,7 +9,8 @@ var h = function h(tag) {
       return {
         tag: tag,
         props: props,
-        children: children
+        children: children,
+        key: props.key
       };
     };
   };

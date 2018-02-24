@@ -1,7 +1,8 @@
 export const h = tag => (props = {}) => (...children) => ({
   tag,
   props,
-  children
+  children,
+  key: props.key
 })
 
 const nodeToDOM = ({ tag, props, children }) => {
