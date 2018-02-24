@@ -29,7 +29,13 @@ var nodeToDOM = function nodeToDOM(_ref) {
   var el = document.createElement(tag);
 
   for (var key in props) {
-    el.setAttribute(key, props[key]);
+    var value = props[key];
+
+    if (typeof value === 'function') {
+      el[key] = value;
+    } else {
+      el.setAttribute(key, value);
+    }
   }
 
   children.forEach(function (child) {
@@ -43,9 +49,10 @@ var nodeToDOM = function nodeToDOM(_ref) {
   return el;
 };
 
-var render = function render(tree) {
-  return function (entry) {
-    entry.appendChild(nodeToDOM(tree));
+var render = function render(entry) {
+  return function (view) {
+    entry.innerHTML = '';
+    entry.appendChild(nodeToDOM(view));
   };
 };
 
