@@ -28,6 +28,7 @@ const nodeToDOM = ({ tag, props, children }) => {
   return el
 }
 
-export const render = tree => entry => {
-  entry.appendChild(nodeToDOM(tree))
+export const render = entry => view => {
+  entry.innerHTML = ''
+  entry.appendChild(nodeToDOM(view))
 }
