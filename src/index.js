@@ -8,7 +8,13 @@ const nodeToDOM = ({ tag, props, children }) => {
   const el = document.createElement(tag)
 
   for (let key in props) {
-    el.setAttribute(key, props[key])
+    const value = props[key]
+
+    if (typeof value === 'function') {
+      el[key] = value
+    } else {
+      el.setAttribute(key, value)
+    }
   }
 
   children.forEach(child => {
