@@ -29,7 +29,29 @@ const nodeToDOM = ({ tag, props, children }) => {
   return el
 }
 
-export const render = entry => view => {
+const render = entry => view => {
   entry.innerHTML = ''
   entry.appendChild(nodeToDOM(view))
+}
+
+export const app = (entry, view, actions, state) => {
+  let appState = state
+  const renderEntry = render(entry)
+  const viewWithActions = view(bindActions(actions))
+  const firstView = viewWithActions(appState)
+
+  renderEntry(firstView)
+
+  function bindActions(actions) {
+    return Object.keys(actions).reduce((boundActions, key) => {
+      const action = actions[key]
+
+      boundActions[key] = value => {
+        appState = Object.assign({}, action(value)(appState))
+        renderEntry(viewWithActions(appState))
+      }
+
+      return boundActions
+    }, {})
+  }
 }
