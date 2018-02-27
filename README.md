@@ -2,6 +2,8 @@
 
 Another JavaScript framework for your FOMO.
 
+**Warning: Do not use this library except for fun. It doesn't belong anywhere near a production environment. Seriously.**
+
 ## API
 
 ### h
