@@ -61,16 +61,13 @@ var app = function app(entry, view, actions, state) {
   var appState = state;
   var renderEntry = render(entry);
   var viewWithActions = view(bindActions(actions));
-  var firstView = viewWithActions(appState);
 
-  renderEntry(firstView);
+  renderEntry(viewWithActions(appState));
 
   function bindActions(actions) {
     return Object.keys(actions).reduce(function (boundActions, key) {
-      var action = actions[key];
-
       boundActions[key] = function (value) {
-        appState = Object.assign({}, action(value)(appState));
+        appState = Object.assign({}, appState, actions[key](value)(appState));
         renderEntry(viewWithActions(appState));
       };
 
