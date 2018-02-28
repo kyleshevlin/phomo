@@ -38,16 +38,13 @@ export const app = (entry, view, actions, state) => {
   let appState = state
   const renderEntry = render(entry)
   const viewWithActions = view(bindActions(actions))
-  const firstView = viewWithActions(appState)
 
-  renderEntry(firstView)
+  renderEntry(viewWithActions(appState))
 
   function bindActions(actions) {
     return Object.keys(actions).reduce((boundActions, key) => {
-      const action = actions[key]
-
       boundActions[key] = value => {
-        appState = Object.assign({}, action(value)(appState))
+        appState = Object.assign({}, appState, actions[key](value)(appState))
         renderEntry(viewWithActions(appState))
       }
 
